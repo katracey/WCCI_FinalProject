@@ -1,0 +1,115 @@
+﻿@model IEnumerable<FinalProject_it3.Models.Project>
+
+@{
+    ViewBag.Title = "Work";
+}
+
+
+<div class="container">
+    <br /><br />
+    <p>
+        See below for examples of the work I did during the We Can Code IT bootcamp
+    </p>
+    <br />
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                
+            </div>
+            <div class="col-md-6">
+                
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <h3 align="center">Exercises</h3>
+            <br />
+            @foreach (var item in Model)
+            {
+                if (item.Scale.Scale1 == "Exercise")
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <p>@Html.DisplayFor(modelItem => item.Name)</p>
+
+                            <h4>@Html.DisplayFor(modelItem => item.Description)</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <!--if statement to leave empty space if field is null-->
+                            @if (item.Screenshot != null)
+                    {
+                            <!--Display image thumbnail, link to image in popup-->
+                                <a href="~/Content/Images/Screenshots/@Html.DisplayFor(modelItem => item.Screenshot)" data-lightbox="@Html.DisplayFor(modelItem => item.Screenshot)"><img src="~/Content/Images/Screenshots/@Html.DisplayFor(modelItem => item.Screenshot)" class="img-responsive, img-thumbnail" width="150" /></a>
+
+                            }
+                        </div>
+                        <div class="col-md-3" align="left">
+                            <!--if statement to leave empty space if field is null-->
+                            @if (item.Link != null)
+                            {
+                                <a href="@Html.DisplayFor(modelItem => item.Link)" target="_blank"><img src="~/Content/Images/GitHub-Mark-64px.png" class="img-responsive" /></a>
+                            }
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <hr />
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        </div>
+
+        <div class="col-md-6">
+            <h3 align="center">Challenges & Projects</h3>
+            <br />
+            @foreach (var item in Model)
+            {
+                if (item.Scale.Scale1 != "Exercise")
+                {
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <p>@Html.DisplayFor(modelItem => item.Name)</p>
+
+                            <h4>@Html.DisplayFor(modelItem => item.Description)</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <!--if statement to leave empty space if field is null-->
+                            @if (item.Screenshot != null)
+                    {
+                            <!--Display image thumbnail, link to image in popup-->
+                                <a href="~/Content/Images/Screenshots/@Html.DisplayFor(modelItem => item.Screenshot)" data-lightbox="@Html.DisplayFor(modelItem => item.Screenshot)"><img src="~/Content/Images/Screenshots/@Html.DisplayFor(modelItem => item.Screenshot)" class="img-responsive, img-thumbnail" width="150" /></a>
+
+                            }
+                        </div>
+                        <div class="col-md-3" align="left">
+                            <!--if statement to leave empty space if field is null-->
+                            @if (item.Link != null)
+                            {
+                                <a href="@Html.DisplayFor(modelItem => item.Link)" target="_blank"><img src="~/Content/Images/GitHub-Mark-64px.png" class="img-responsive" /></a>
+                            }
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <hr />
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        </div>
+
+    </div>
+</div>

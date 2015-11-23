@@ -1,0 +1,44 @@
+
+
+/* Disappear hr element only on home */
+
+hr {
+	background:none;
+	clear:both;
+	float:none;
+	width:100%;
+	height:1px;
+	border:none;
+	margin:-1px 0;
+}
+
+
+/* Below is for adaptive image change */
+
+body {
+    
+    background-image: url('../Content/Images/IMG_2361_small.jpg');
+	background-position: center; 
+}
+
+@media only screen and (min-width: 500px) {
+    body { 
+       background-image: url('../Content/Images/IMG_2361_crop.jpg'); 
+	background-position: right;
+    }
+}
+
+/* Whole page link */
+
+.whole-page {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   width: 100%;
+   height: 100%;
+   text-indent: -9999px; /* we don't need to see the text, but some users and robots such as Google do */
+}
+
+
